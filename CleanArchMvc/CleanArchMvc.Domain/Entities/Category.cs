@@ -5,8 +5,6 @@ namespace CleanArchMvc.Domain.Entities
 {
     public sealed class Category : Entity
     {
-        public string Name { get; private set; }
-
         public Category(string name)
         {
             ValidateDomain(name);
@@ -24,12 +22,12 @@ namespace CleanArchMvc.Domain.Entities
             ValidateDomain(name);
         }
 
-        public ICollection<Product> Products { get; set; }
+        public ICollection<Category> Products { get; set; }
         public void ValidateDomain(string name)
         {
             DomainExceptionValidation.When(string.IsNullOrEmpty(name), "Invalid name.Name is required.");
 
-            DomainExceptionValidation.When(string.IsNullOrEmpty(name), "Invalid name.Name too short, minimum 3 characters.");
+            DomainExceptionValidation.When(name.Length < 3, "Invalid name.Name too short, minimum 3 characters.");
 
             Name = name;
         }
