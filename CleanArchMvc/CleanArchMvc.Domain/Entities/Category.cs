@@ -5,6 +5,7 @@ namespace CleanArchMvc.Domain.Entities
 {
     public sealed class Category : Entity
     {
+        public ICollection<Product> Products { get; set; }
         public Category(string name)
         {
             ValidateDomain(name);
@@ -22,7 +23,6 @@ namespace CleanArchMvc.Domain.Entities
             ValidateDomain(name);
         }
 
-        public ICollection<Category> Products { get; set; }
         public void ValidateDomain(string name)
         {
             DomainExceptionValidation.When(string.IsNullOrEmpty(name), "Invalid name.Name is required.");

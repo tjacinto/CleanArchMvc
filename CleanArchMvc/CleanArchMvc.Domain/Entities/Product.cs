@@ -49,7 +49,7 @@ namespace CleanArchMvc.Domain.Entities
             image = image;
 
         }
-        public int ProductId { get; set; }
-        public Product product { get; set; }
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
     }
 }
