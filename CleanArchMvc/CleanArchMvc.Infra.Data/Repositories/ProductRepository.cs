@@ -33,7 +33,7 @@ namespace CleanArchMvc.Infra.Data.Repositories
                 .SingleOrDefaultAsync(p => p.Id == id);
         }
 
-        public async Task<IEnumerable<Product>> GetProductsAsync()
+        public async Task<IEnumerable<Product>> GetProducts()
         {
             return await _productContext.Products.ToListAsync();
         }
