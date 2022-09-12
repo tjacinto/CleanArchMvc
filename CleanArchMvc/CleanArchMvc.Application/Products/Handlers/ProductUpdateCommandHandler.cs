@@ -21,10 +21,14 @@ namespace CleanArchMvc.Application.Products.Handlers
             var product = await _productRepository.GetByIdAsync(request.Id);
 
             if (product == null)
+            {
                 throw new ApplicationException($"Error could not be found.");
-
-            product.UpdateProduct(request.Name, request.Description, request.Price, request.Stock, request.Image, request.CategoryId);
-            return await _productRepository.UpdateAsync(product);
+            }
+            else
+            {
+                product.UpdateProduct(request.Name, request.Description, request.Price, request.Stock, request.Image, request.CategoryId);
+                return await _productRepository.UpdateAsync(product);
+            }
         }
     }
 }
