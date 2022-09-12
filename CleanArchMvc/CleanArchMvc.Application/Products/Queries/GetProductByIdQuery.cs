@@ -6,7 +6,7 @@ namespace CleanArchMvc.Application.Products.Queries
     public class GetProductByIdQuery : IRequest<Product>
     {
         public int Id { get; set; }
-        public GetProductByIdQuery()
+        public GetProductByIdQuery(int id)
         {
             Id = Id;
         }
