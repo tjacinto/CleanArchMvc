@@ -9,7 +9,7 @@ namespace CleanArchMvc.Infra.Data.Repositories
 {
     public class ProductRepository : IProductRepository
     {
-        ApplicationDbContext _productContext;
+        private ApplicationDbContext _productContext;
         public ProductRepository(ApplicationDbContext context)
         {
             _productContext = context;
@@ -26,16 +26,17 @@ namespace CleanArchMvc.Infra.Data.Repositories
         {
             //return await _productContext.Products.FindAsync(id);
             return await _productContext.Products.Include(c => c.Category)
-                .SingleOrDefaultAsync(p => p.Id == id);
+               .SingleOrDefaultAsync(p => p.Id == id);
         }
 
         //public async Task<Product> GetProductCategoryAsync(int? id)
         //{
+        //    //eager loading
         //    return await _productContext.Products.Include(c => c.Category)
         //        .SingleOrDefaultAsync(p => p.Id == id);
         //}
 
-        public async Task<IEnumerable<Product>> GetProducts()
+        public async Task<IEnumerable<Product>> GetProductsAsync()
         {
             return await _productContext.Products.ToListAsync();
         }
