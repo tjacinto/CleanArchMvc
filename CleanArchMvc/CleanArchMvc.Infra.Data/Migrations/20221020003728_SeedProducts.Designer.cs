@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CleanArchMvc.Infra.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220705215733_Inicial")]
-    partial class Inicial
+    [Migration("20221020003728_SeedProducts")]
+    partial class SeedProducts
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
