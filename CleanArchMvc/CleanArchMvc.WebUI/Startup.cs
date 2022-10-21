@@ -21,6 +21,7 @@ namespace CleanArchMvc.WebUI
         {
             //services.AddDbContext<DbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllersWithViews();
+            services.AddAuthentication();
             services.AddInfrastructure(Configuration);
         }
 
@@ -41,7 +42,7 @@ namespace CleanArchMvc.WebUI
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
